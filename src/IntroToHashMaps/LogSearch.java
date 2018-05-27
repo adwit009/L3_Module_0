@@ -41,21 +41,24 @@ public class LogSearch implements ActionListener{
 	 * */
 	
 	
-	
+	String output = "";
 	JFrame frame = new JFrame(); 
 	JPanel panel = new JPanel();
 	JButton b1 = new JButton("Add Entry");
 	JButton b2 = new JButton("Search by ID");
 	JButton b3 = new JButton("View List");
+	JButton b4 = new JButton("Remove Entry");
 	HashMap<Integer, String> people = new HashMap<>(); 
 	LogSearch () {
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
+		b4.addActionListener(this);
 		frame.add(panel);
 		panel.add(b1);
 		panel.add(b2);
 		panel.add(b3);
+		panel.add(b4);
 		frame.pack();
 	frame.setVisible(true);
 	}
@@ -71,14 +74,45 @@ public class LogSearch implements ActionListener{
 		int intId = Integer.parseInt(id);
 		String name = 	JOptionPane.showInputDialog("Please enter a name (First and last)");
 		people.put(intId, name);
-		
 		}
 		if (e.getSource() == b2) {
+			String findID = JOptionPane.showInputDialog("Enter an ID (3 digit)");
+			int intId = Integer.parseInt(findID);
+			if (people.get(intId) == null ) {
+				JOptionPane.showMessageDialog(null, "This ID does not exist");
+			}else {
+				
+JOptionPane.showMessageDialog(null,(people.get(intId)));
+			}
 			
 		}
 		if (e.getSource() == b3) {
-	
+			
+			for(int s : people.keySet()){
+			String names = people.get(s);
+			output += "ID: "+ s+"  Name: " +names +"\n";
+
+				
+			}
+			JOptionPane.showMessageDialog(null,output);
+			output = "";
 }
+if (e.getSource() == b4) {
+			
+			
+String findID = JOptionPane.showInputDialog("Enter an ID (3 digit)");
+int intId = Integer.parseInt(findID);
+if (people.get(intId) == null ) {
+	JOptionPane.showMessageDialog(null, "This ID does not exist");
+}else {
+	
+people.remove(intId);
+JOptionPane.showMessageDialog(null, "ID removed");
+}
+			
+			
+}
+	
 	}
 	
 }
