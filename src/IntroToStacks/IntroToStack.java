@@ -41,6 +41,7 @@ public class IntroToStack {
 		for (int i = 0; i < 100; i++) {		
 			double hi = r.nextDouble()*100;
 		doubles.push(hi);
+		}
 		String string1 =JOptionPane.showInputDialog("Enter a number between 1 and 100 (inclusive)");
 		String string2 = JOptionPane.showInputDialog("Enter another number between 1 and 100 (inclusive)");
 		int num1 = Integer.parseInt(string1);	
@@ -57,7 +58,7 @@ public class IntroToStack {
 				if (check< num2) {
 					System.out.println(check);
 				}
-				doubles.pop();
+				
 			}
 		}
 		
@@ -71,4 +72,4 @@ public class IntroToStack {
 		
 		}
 	}
-}
+
